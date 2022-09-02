@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "67cdb720-c6a4-48c5-a496-8a95a436f2ed",
+		"name": "Helios back-end",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login System Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f07ec7ca-0db9-44e2-b841-eb646d92ec16",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    ",
+							"",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.globals.set(\"access_token\", jsonData.token.access_token);",
+							"    pm.globals.set(\"refresh_token\", jsonData.token.refresh_token);",
+							"",
+							"});",
+							"",
+							"pm.test(\"Tokens are valid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.token.access_token).to.not.equal('');",
+							"    pm.expect(jsonData.token.refresh_token).to.not.equal('');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "412913de-4486-4796-9d71-e7628303ebc6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"orion_system_admin@orion.com\",\n    \"password\": \"test1234#%\"\n}",
+					"options": {}
+				},
+				"url": "{{env}}/v1/user/login"
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/facilities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "af8c319b-50bd-48b4-bb8b-4e3093c5a8b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{helios-env}}/v1/facilities"
+			},
+			"response": []
+		},
+		{
+			"name": "/v2/authtest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "48e72ea0-876a-43c1-99ca-886c4dcea0b0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"test\": \"value\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{helios-env}}/v2/authtest?param1=param1 test value",
+					"host": [
+						"{{helios-env}}"
+					],
+					"path": [
+						"v2",
+						"authtest"
+					],
+					"query": [
+						{
+							"key": "param1",
+							"value": "param1 test value"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v2/schedule_converter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "4507a33d-6691-4c0b-9c8f-575299c3a9cc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{helios-env}}/v2/schedule_converter"
+			},
+			"response": []
+		},
+		{
+			"name": "/v2/schedule_converter/convert metro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "79488f85-e620-428a-8d36-6f6c515c2caf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "test",
+							"type": "file",
+							"src": "Metrohealth Example.xlsx"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "{{helios-env}}/v2/schedule_converter/convert?id=metro",
+					"host": [
+						"{{helios-env}}"
+					],
+					"path": [
+						"v2",
+						"schedule_converter",
+						"convert"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "metro"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v2/schedule_converter/convert frederick",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "50c69ce0-4f4a-4a42-881a-9ddccc93d221",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "Frederick Example.xlsx"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "{{helios-env}}/v2/schedule_converter/convert?id=frederick",
+					"host": [
+						"{{helios-env}}"
+					],
+					"path": [
+						"v2",
+						"schedule_converter",
+						"convert"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "frederick"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v2/schedule",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b509434d-461a-4525-a001-d78de469a6f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "c6d8b97d-711d-4925-a649-f74a01c7a081",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{access_token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"headers\": [\n        \"facilityID\",\n        \"startDateTime\",\n        \"endDateTime\",\n        \"procedureName\",\n        \"operatingRoom\",\n        \"surgeon\",\n        \"serviceLine\"\n    ],\n    \"values\": [\n        [\n            \"42\",\n            \"2022-08-22 08:08:00\",\n            \"2022-08-22 10:01:00\",\n            \"PLIF/TLIF/Decom/Bone Graft/Cage/Inst/1L\",\n            \"9\",\n            \"Ravi Yalamanchili\",\n            \"Orthopedic\"\n        ],\n        [\n            \"42\",\n            \"2022-08-22 12:12:00\",\n            \"2022-08-22 13:44:00\",\n            \"Knee Total Arthroplasty\",\n            \"6\",\n            \"Therlinsie P Fleurizard\",\n            \"Orthopedic\"\n        ]\n    ] \n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "{{helios-env}}/v2/schedule"
+			},
+			"response": []
+		}
+	]
+}
