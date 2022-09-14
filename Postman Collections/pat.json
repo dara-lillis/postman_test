@@ -256,8 +256,6 @@
 					"script": {
 						"id": "b509434d-461a-4525-a001-d78de469a6f4",
 						"exec": [
-							"// Just adding a comment. Will this trigger another backup. IDK.",
-							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
