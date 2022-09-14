@@ -351,7 +351,7 @@
 							"    console.log(post_schedule_response.data.headers)",
 							"    pm.expect(post_schedule_response.data.headers).to.have.same.members(expected_headers);",
 							"    console.log(post_schedule_response.data.values)",
-							"    pm.expect(post_schedule_response.data.values).length.to.be(2)",
+							"    pm.expect(post_schedule_response.data.values.length).to.equal(2)",
 							"// .to.have.same.members",
 							"});"
 						],
