@@ -396,7 +396,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"headers\": [\n        \"facilityID\",\n        \"startDateTime\",\n        \"endDateTime\",\n        \"procedureName\",\n        \"operatingRoom\",\n        \"surgeon\",\n        \"serviceLine\"\n    ],\n    \"values\": [\n        [\n            \"{{facilityID_1}}\",\n            \"{{startDateTime_1}}\",\n            \"{{endDateTime_1}}\",\n            \"{{procedureName_1}}\",\n            \"10\",\n            \"Ravi Yzalamanchili\",\n            \"Orthopedics\"\n        ],\n        [\n            \"42\",\n            \"2022-08-22 12:12:00\",\n            \"2022-08-22 13:44:00\",\n            \"Knee Total Arthroplasty\",\n            \"6\",\n            \"Therlinsie P Fleurizard\",\n            \"Orthopedic\"\n        ]\n    ] \n}"
+					"raw": "{\n    \"headers\": [\n        \"facilityID\",\n        \"startDateTime\",\n        \"endDateTime\",\n        \"procedureName\",\n        \"operatingRoom\",\n        \"surgeon\",\n        \"serviceLine\"\n    ],\n    \"values\": [\n        [\n            \"{{facilityID_1}}\",\n            \"{{startDateTime_1}}\",\n            \"{{endDateTime_1}}\",\n            \"{{procedureName_1}}\",\n            \"{{operatingRoom_1}}\",\n            \"{{surgeon_1}}\",\n            \"{{serviceLine_1}}\"\n        ],\n        [\n            \"42\",\n            \"2022-08-22 12:12:00\",\n            \"2022-08-22 13:44:00\",\n            \"Knee Total Arthroplasty\",\n            \"6\",\n            \"Therlinsie P Fleurizard\",\n            \"Orthopedic\"\n        ]\n    ] \n}"
 				},
 				"url": "{{helios-env}}/v2/schedule"
 			},
