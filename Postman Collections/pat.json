@@ -354,6 +354,7 @@
 							"    pm.expect(typeof(post_schedule_response.data.values[0][12]), \"operatingRoomId\").to.equal(\"number\");",
 							"    pm.expect(typeof(post_schedule_response.data.values[0][13]), \"operatingRoomId\").to.equal(\"number\");",
 							"    pm.expect(typeof(post_schedule_response.data.values[0][14]), \"operatingRoomId\").to.equal(\"number\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][15]), \"operatingRoomId\").to.equal(\"number\");",
 							"});"
 						],
 						"type": "text/javascript"
