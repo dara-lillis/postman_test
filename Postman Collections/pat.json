@@ -346,7 +346,13 @@
 							"    pm.expect(post_schedule_response.data.values.length, \"Two schedules entries created.\").to.equal(2);",
 							"    pm.expect(post_schedule_response.data.values[0], \"Validate response includes data submitted\").to.include.members(expected_schedule_1);",
 							"    // Validate format of assigned values.",
-							"    pm.expect(typeof(post_schedule_response.data.values[0][7]), \"facilityName\").to.equal(\"string\")",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][7]), \"facilityName\").to.equal(\"string\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][8]), \"operatingRoomId\").to.equal(\"integer\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][9]), \"operatingRoomId\").to.equal(\"integer\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][10]), \"operatingRoomId\").to.equal(\"integer\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][11]), \"operatingRoomId\").to.equal(\"integer\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][12]), \"operatingRoomId\").to.equal(\"integer\");",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][13]), \"operatingRoomId\").to.equal(\"integer\");",
 							"});"
 						],
 						"type": "text/javascript"
