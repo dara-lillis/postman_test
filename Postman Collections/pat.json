@@ -323,8 +323,17 @@
 					"script": {
 						"id": "b509434d-461a-4525-a001-d78de469a6f4",
 						"exec": [
+							"var post_schedule_response = pm.response.json();",
+							"",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"create two schedule entries\", function () {",
+							"    console.log(post_schedule_response.data)",
+							"    console.log(post_schedule_response.data.headers)",
+							"    console.log(post_schedule_response.data.values)",
+							"",
 							"});"
 						],
 						"type": "text/javascript"
@@ -353,7 +362,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"headers\": [\n        \"facilityID\",\n        \"startDateTime\",\n        \"endDateTime\",\n        \"procedureName\",\n        \"operatingRoom\",\n        \"surgeon\",\n        \"serviceLine\"\n    ],\n    \"values\": [\n        [\n            \"42\",\n            \"2022-08-22 08:08:00\",\n            \"2022-08-22 10:01:00\",\n            \"PLIF/TLIF/Decom/Bone Graft/Cage/Inst/1L\",\n            \"9\",\n            \"Ravi Yalamanchili\",\n            \"Orthopedic\"\n        ],\n        [\n            \"42\",\n            \"2022-08-22 12:12:00\",\n            \"2022-08-22 13:44:00\",\n            \"Knee Total Arthroplasty\",\n            \"6\",\n            \"Therlinsie P Fleurizard\",\n            \"Orthopedic\"\n        ]\n    ] \n}"
+					"raw": "{\n    \"headers\": [\n        \"facilityID\",\n        \"startDateTime\",\n        \"endDateTime\",\n        \"procedureName\",\n        \"operatingRoom\",\n        \"surgeon\",\n        \"serviceLine\"\n    ],\n    \"values\": [\n        [\n            \"41\",\n            \"2022-08-22 08:08:01\",\n            \"2022-08-22 10:01:00\",\n            \"PLzIF/TLIF/Decom/Bone Graft/Cage/Inst/1L\",\n            \"10\",\n            \"Ravi Yzalamanchili\",\n            \"Orthopedics\"\n        ],\n        [\n            \"42\",\n            \"2022-08-22 12:12:00\",\n            \"2022-08-22 13:44:00\",\n            \"Knee Total Arthroplasty\",\n            \"6\",\n            \"Therlinsie P Fleurizard\",\n            \"Orthopedic\"\n        ]\n    ] \n}"
 				},
 				"url": "{{helios-env}}/v2/schedule"
 			},
