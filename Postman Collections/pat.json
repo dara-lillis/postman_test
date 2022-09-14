@@ -342,9 +342,11 @@
 							"            pm.variables.get(\"operatingRoom_1\"), pm.variables.get(\"surgeon_1\"),",
 							"            pm.variables.get(\"serviceLine_1\")",
 							"        ];",
-							"    pm.expect(post_schedule_response.data.headers, \"Validate response headers.\").to.have.same.members(expected_headers);",
+							"    pm.expect(post_schedule_response.data.headers,\"Validate response headers.\").to.have.same.members(expected_headers);",
 							"    pm.expect(post_schedule_response.data.values.length, \"Two schedules entries created.\").to.equal(2);",
-							"    pm.expect(post_schedule_response.data.values[0], \"Validate response matches data submitted\").to.include.members(expected_schedule_1);",
+							"    pm.expect(post_schedule_response.data.values[0], \"Validate response includes data submitted\").to.include.members(expected_schedule_1);",
+							"    // Validate format of assigned values.",
+							"    pm.expect(typeof(post_schedule_response.data.values[0][8])).to.equal(\"string\")",
 							"});"
 						],
 						"type": "text/javascript"
