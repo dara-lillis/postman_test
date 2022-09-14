@@ -362,7 +362,7 @@
 						"id": "d552fa99-891d-411d-8b51-8e96ff6e9fc4",
 						"exec": [
 							"",
-							"pm.variables.set(\"facilityID_1\", \"2022-08-22 08:08:01\");",
+							"pm.variables.set(\"facilityID_1\", \"41\");",
 							"pm.variables.set(\"startDateTime_1\", \"2022-08-22 08:08:01\");",
 							"pm.variables.set(\"endDateTime_1\", \"2022-08-22 10:01:00\");",
 							"pm.variables.set(\"procedureName_1\", \"PLIF/TLIF/Decom/Bone Graft/Cage/Inst/1L\");",
